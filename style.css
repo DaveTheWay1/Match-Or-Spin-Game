@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+}
+
+#colorsContainers{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px;
+}
+.colorFlash{
+    border: solid black 1px;
+    height: 100px;
+    width: 100px;
+}
+
+button{
+    height: 150px;
+    width: 150px;
+}
+
+#detonate{
+    background-color: yellow;
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+}
+#confirm{
+    background-color: red;
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+}
