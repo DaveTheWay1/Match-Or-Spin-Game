@@ -19,6 +19,7 @@ const colorList = [
 const firstBox = document.getElementById('color1');
 const secondBox = document.getElementById('color2');
 const thirdBox = document.getElementById('color3');
+const boxes = document.querySelectorAll('.colorFlash');
 const confirmBtn = document.getElementById('confirm').addEventListener('click', handleConfim);
 const colorButtons = document.querySelectorAll('main > div');
 colorButtons.forEach(function(button){
@@ -27,3 +28,14 @@ colorButtons.forEach(function(button){
 
 let randomizedPattern = [];
 let selectedColors = [];
+let currentBox = 0;
+
+function handleClick(e){
+    const color = e.target.id
+    selectedColors.push(color);
+    console.log(selectedColors);
+}
+
+function handleConfim(e){
+    console.log('Confirming Match!')
+}
