@@ -80,7 +80,6 @@ function fillInTheColors() {
         })
     }
 }
-fillInTheColors()
 
 function handleStart(e){
     console.log('Game Starts NOW!');
