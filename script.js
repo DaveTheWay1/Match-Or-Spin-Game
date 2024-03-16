@@ -48,14 +48,18 @@ function handleClick(e){
 
 function handleConfim(e){
     console.log('Confirming Match..')
-    for(i = 0; i < randomizedPattern.length; i++){
-        let color = randomizedPattern[i].slice(1);
-        console.log(color);
-        if(color !== selectedColors[i]){
-            console.log('not a match!');
-        }else{
-            console.log(`color: ${color} selected color: ${selectedColors[i]}`);
-            console.log('Match!')
+    if(randomizedPattern.length !== selectedColors.length){
+        boomGameOver();
+    }else{
+        for(i = 0; i < randomizedPattern.length; i++){
+            let color = randomizedPattern[i].slice(1);
+            if(color !== selectedColors[i]){
+                boomGameOver();
+                break;
+            }else{
+                console.log(`color: ${color} selected color: ${selectedColors[i]}`);
+                console.log('Match!')
+            }
         }
     }
 }
@@ -94,6 +98,10 @@ function fillInTheColors() {
 function handleStart(e){
     console.log('Game Starts NOW!');
     fillInTheColors();
+}
+
+function boomGameOver(){
+    console.log('game over..')
 }
 
 function randomColor(e){
