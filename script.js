@@ -47,7 +47,17 @@ function handleClick(e){
 
 
 function handleConfim(e){
-    console.log('Confirming Match!')
+    console.log('Confirming Match..')
+    for(i = 0; i < randomizedPattern.length; i++){
+        let color = randomizedPattern[i].slice(1);
+        console.log(color);
+        if(color !== selectedColors[i]){
+            console.log('not a match!');
+        }else{
+            console.log(`color: ${color} selected color: ${selectedColors[i]}`);
+            console.log('Match!')
+        }
+    }
 }
 
 function handleDetonate(e){
