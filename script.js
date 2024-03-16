@@ -16,6 +16,16 @@ const colorList = [
     {color:'#E54949', time:3000},
     {color:'#73A07A', time:3000}
 ];
+
+const min = document.getElementById('minutes');
+const sec = document.getElementById('seconds');
+
+function timer(cb){
+    min.innerText = 1;
+    sec.innerText = 59
+    setTimeout(cb, 1000);
+}
+timer()
 const firstBox = document.getElementById('color1');
 const secondBox = document.getElementById('color2');
 const thirdBox = document.getElementById('color3');
