@@ -17,15 +17,29 @@ const colorList = [
     {color:'#73A07A', time:3000}
 ];
 
+let minutes = 1;
+let seconds = 59;
+
 const min = document.getElementById('minutes');
 const sec = document.getElementById('seconds');
 
-function timer(cb){
-    min.innerText = 1;
-    sec.innerText = 59
-    setTimeout(cb, 1000);
+function setTime(){
+    min.innerText = minutes;
+    sec.innerText = seconds < 10 ? '0' + seconds : seconds;
 }
-timer()
+
+function timer(){
+    seconds = seconds - 1;
+    if (seconds < 0) {
+        seconds = 59;
+        minutes = minutes - 1;
+    }
+    if (minutes < 0) {
+        return;
+    }
+    setTime();
+    setTimeout(timer, 1000);
+}
 const firstBox = document.getElementById('color1');
 const secondBox = document.getElementById('color2');
 const thirdBox = document.getElementById('color3');
@@ -107,6 +121,7 @@ function fillInTheColors() {
 
 function handleStart(e){
     console.log('Game Starts NOW!');
+    timer();
     fillInTheColors();
 }
 

@@ -32,6 +32,12 @@ button{
     height: 200px;
 }
 
+#redLight{
+    position:absolute;
+    top:15px;
+    width:40px;
+}
+
 main{
     background-color: grey;
     padding: 10px;
