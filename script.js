@@ -17,11 +17,33 @@ const colorList = [
     {color:'#73A07A', time:3000}
 ];
 
-let minutes = 1;
-let seconds = 59;
-
+const firstBox = document.getElementById('color1');
+const secondBox = document.getElementById('color2');
+const thirdBox = document.getElementById('color3');
+const boxes = document.querySelectorAll('.colorFlash');
+const start = document.getElementById('start').addEventListener('click', handleStart)
+const colorButtons = document.querySelectorAll('main > div');
+const confirmBtn = document.getElementById('confirm').addEventListener('click', handleConfim);
+const detonoate = document.getElementById('detonate').addEventListener('click', handleDetonate);
+colorButtons.forEach(function(button){
+    button.addEventListener('click', handleClick);
+})
 const min = document.getElementById('minutes');
 const sec = document.getElementById('seconds');
+
+let randomizedPattern = [];
+let selectedColors = [];
+let currentBox = 0;
+
+let gameOver = false;
+let level1 = false;
+let level2 = false;
+let level3 = false;
+let level4 = false;
+let level5 = false;
+
+let minutes = 1;
+let seconds = 59;
 
 function setTime(){
     min.innerText = minutes;
@@ -40,35 +62,12 @@ function timer(){
     setTime();
     setTimeout(timer, 1000);
 }
-const firstBox = document.getElementById('color1');
-const secondBox = document.getElementById('color2');
-const thirdBox = document.getElementById('color3');
-const boxes = document.querySelectorAll('.colorFlash');
-const start = document.getElementById('start').addEventListener('click', handleStart)
-const colorButtons = document.querySelectorAll('main > div');
-const confirmBtn = document.getElementById('confirm').addEventListener('click', handleConfim);
-const detonoate = document.getElementById('detonate').addEventListener('click', handleDetonate);
-colorButtons.forEach(function(button){
-    button.addEventListener('click', handleClick);
-})
-
-let randomizedPattern = [];
-let selectedColors = [];
-let currentBox = 0;
-
-let gameOver = false;
-let level1 = false;
-let level2 = false;
-let level3 = false;
-let level4 = false;
-let level5 = false;
 
 function handleClick(e){
     const color = e.target.id
     selectedColors.push(color);
     console.log(selectedColors);
 }
-
 
 function handleConfim(e){
     console.log('Confirming Match..')
