@@ -53,13 +53,13 @@ main{
     padding: 10px;
 }
 
-#blueDino{
+img[alt="blueDino"]{
     width: 90px;
 }
-#pinkDino{
+img[alt="pinkDino"]{
     width:90px;
 }
-#eatingDino{
+img[alt="eatingDino"]{
     padding: none;
     margin: none;
     position: relative;
@@ -67,53 +67,50 @@ main{
     bottom: 45px;
     width:200px;
 }
-#hungryDino{
-    width: 100px;
-}
-#cow{
+img[alt="cow"]{
     position: relative;
     right: 40px;
     width: 200px;
 }
-#lama{
+img[alt="lama"]{
     width:90px;
 }
-#rooster{
+img[alt="rooster"]{
     width: 170px;
     position: relative;
     right:20px;
     bottom: 20px;
 }
-#pig{
+img[alt="pig"]{
     width: 70px;
 }
 
-#sandwich{
+img[alt="sandwich"]{
     width: 100px;
 }
-#fries{
+img[alt="fries"]{
     width:120px;
 }
-#hotdog{
+img[alt="hotdog"]{
     width: 70px;
 }
-#smores{
+img[alt="smores"]{
     width:100px;
 }
 
-#potato{
+img[alt="potato"]{
     width: 100px;
 }
 
-#peas{
+img[alt="peas"]{
     width: 105px;
 }
 
-#carrots{
+img[alt="carrots"]{
     width: 100px;
 }
 
-#onion{
+img[alt="onion"]{
     width: 100px;
 }
 
@@ -126,6 +123,9 @@ button{
 #DBEA2C{
     position: relative;
     bottom: 14px;
+}
+img[alt = "hungryDino"]{
+    width: 100px;
 }
 
 #BF26D8{
