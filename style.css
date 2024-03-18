@@ -1,6 +1,16 @@
 *{
     box-sizing: border-box;
 }
+h1{
+    text-align: center;
+}
+
+main {
+    width: 600px;
+    max-width: 600px; 
+    margin: 0 auto;
+    background-color: grey;
+}
 
 #colorsContainers{
     display: flex;
@@ -41,4 +51,161 @@ button{
 main{
     background-color: grey;
     padding: 10px;
+}
+
+#blueDino{
+    width: 90px;
+}
+#pinkDino{
+    width:90px;
+}
+#eatingDino{
+    padding: none;
+    margin: none;
+    position: relative;
+    right: 50px;
+    bottom: 45px;
+    width:200px;
+}
+#hungryDino{
+    width: 100px;
+}
+#cow{
+    position: relative;
+    right: 40px;
+    width: 200px;
+}
+#lama{
+    width:90px;
+}
+#rooster{
+    width: 170px;
+    position: relative;
+    right:20px;
+    bottom: 20px;
+}
+#pig{
+    width: 70px;
+}
+
+#sandwich{
+    width: 100px;
+}
+#fries{
+    width:120px;
+}
+#hotdog{
+    width: 70px;
+}
+#smores{
+    width:100px;
+}
+
+#potato{
+    width: 100px;
+}
+
+#peas{
+    width: 105px;
+}
+
+#carrots{
+    width: 100px;
+}
+
+#onion{
+    width: 100px;
+}
+
+button{
+    border: solid black 1px;
+    box-shadow: 2px 2px 2px 2px black;
+}
+
+/* yellow */
+#DBEA2C{
+    position: relative;
+    bottom: 14px;
+}
+
+#BF26D8{
+    position: relative;
+    bottom: 88px;
+}
+/* dark green */
+#\31 87C3A {
+    position: relative;
+    bottom: 6px;
+}
+
+/* blue */
+#\32 52DE2 {
+    position: relative;
+    bottom: 3px;
+}
+
+/* carrots */
+#\36 66441 {
+    position:relative;
+    bottom: 93px;
+}
+
+/* onion */
+#B81A5C{
+    position: relative;
+    bottom:94px;
+}
+
+/* sandwich */
+#C9AAA2{
+    position: relative;
+    bottom: 90px;
+}
+
+#\39 3D551{
+    position: relative;
+    bottom: 83px;
+}
+
+/* cow */
+#\31 7424F{
+    position: relative;
+    bottom: 75px;
+}
+
+/* lama */
+#\36 C0D53{
+    position: relative;
+    bottom: 91px;
+}
+
+#\36 F413E{
+    position: relative;
+    bottom: 140px;
+}
+
+#F8EDED{
+    position: relative;
+    bottom: 137px;
+}
+
+#E54949{
+    position: relative;
+    bottom: 73px;
+}
+
+#\37 3A07A{
+    position: relative;
+    bottom: 140px;
+}
+
+.main-btn{
+    margin-left: 5px;
+    margin-right: 15px;
+}
+
+main{
+    padding-top: 20px;
+    height: 570px;
+    /* box-shadow: 2px 2px 2px 2px black; */
 }

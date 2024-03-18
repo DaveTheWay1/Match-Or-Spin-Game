@@ -57,7 +57,6 @@ let currentLevel = levels[0];
 function levelUp(){
     const upOne = levels.slice(1);
     levels = upOne;
-    // upOne after the slice is [levelTwo, levelThree, levelFour, levelFive]
     currentLevel = upOne[0]
     console.log(currentLevel.level);
     randomizedPattern = []
@@ -66,7 +65,6 @@ function levelUp(){
         fillInTheColors();
     }
 }
-// levelUp()
 
 let gameOver = false;
 
@@ -142,15 +140,12 @@ function boxesToBeFilled(cb){
 }
 
 function fillInTheColors(){
-    console.log(`level: ${currentLevel.level}`)
-    console.log(`box: ${currentBox} level length: ${currentLevel.length} pattern length: ${randomizedPattern.length}`)
     if(currentBox < 3){
         boxesToBeFilled(fillInTheColors);
         currentBox = ++currentBox;
         console.log(currentBox);
     } else if(currentBox === 3 && currentLevel.length === 6 && randomizedPattern.length < 6 
     || currentBox === 3 && currentLevel.length === 9 && randomizedPattern.length < 9){
-    // console.log(`box: ${currentBox} level length: ${currentLevel.length} pattern length: ${randomizedPattern.length}`)
     currentBox = 0;
     fillInTheColors()
     } else{
@@ -160,8 +155,6 @@ function fillInTheColors(){
             })
         }
     }
-
-// }
 
 function handleStart(e){
     console.log('Game Starts NOW!');
