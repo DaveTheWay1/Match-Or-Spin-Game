@@ -35,15 +35,43 @@ let randomizedPattern = [];
 let selectedColors = [];
 let currentBox = 0;
 
+class level{
+    constructor(level, length){
+        this.level = level,
+        this.length = length,
+        this.isComplete = false;
+    }
+    levelComplete(){
+        this.isComplete = true;
+    }
+}
+const levelOne = new level(1, 3);
+const levelTwo = new level(2,3);
+const levelThree = new level(3,6);
+const levelFour = new level(4,6);
+const levelFive = new level(5,9);
+
+let levels = [levelOne, levelTwo, levelThree, levelFour, levelFive];
+let currentLevel = levels[0];
+
+function levelUp(){
+    const upOne = levels.slice(1);
+    levels = upOne;
+    // upOne after the slice is [levelTwo, levelThree, levelFour, levelFive]
+    currentLevel = upOne[0]
+    console.log(currentLevel.level);
+    randomizedPattern = []
+    selectedColors = []
+    if (gameOver === false){
+        fillInTheColors();
+    }
+}
+// levelUp()
+
 let gameOver = false;
-let level1 = false;
-let level2 = false;
-let level3 = false;
-let level4 = false;
-let level5 = false;
 
 let minutes = 1;
-let seconds = 59;
+let seconds = 60;
 
 function setTime(){
     min.innerText = minutes;
@@ -51,6 +79,9 @@ function setTime(){
 }
 
 function timer(){
+    if (gameOver === true){
+        return
+    }
     seconds = seconds - 1;
     if (seconds < 0) {
         seconds = 59;
@@ -69,6 +100,11 @@ function handleClick(e){
     console.log(selectedColors);
 }
 
+
+function handleDetonate(e){
+    console.log('BOOM! Game over..')
+}
+
 function handleConfim(e){
     console.log('Confirming Match..')
     if(randomizedPattern.length !== selectedColors.length){
@@ -81,16 +117,15 @@ function handleConfim(e){
                 break;
             }else{
                 console.log(`color: ${color} selected color: ${selectedColors[i]}`);
-                console.log('Match!')
+                console.log(`Match!`)
             }
+            currentLevel.levelComplete();
+            console.log(currentLevel.isComplete)
+            console.log(`Level ${currentLevel.level} Complete!`);
+            levelUp();
         }
     }
 }
-
-function handleDetonate(e){
-    console.log('BOOM! Game over..')
-}
-
 function boxesToBeFilled(cb){
     boxes.forEach(function(box){
         box.style.backgroundColor = 'black';
@@ -106,17 +141,27 @@ function boxesToBeFilled(cb){
     setTimeout(cb, colorList[selected].time);
 }
 
-function fillInTheColors() {
+function fillInTheColors(){
+    console.log(`level: ${currentLevel.level}`)
+    console.log(`box: ${currentBox} level length: ${currentLevel.length} pattern length: ${randomizedPattern.length}`)
     if(currentBox < 3){
         boxesToBeFilled(fillInTheColors);
         currentBox = ++currentBox;
-    }else{
+        console.log(currentBox);
+    } else if(currentBox === 3 && currentLevel.length === 6 && randomizedPattern.length < 6 
+    || currentBox === 3 && currentLevel.length === 9 && randomizedPattern.length < 9){
+    // console.log(`box: ${currentBox} level length: ${currentLevel.length} pattern length: ${randomizedPattern.length}`)
+    currentBox = 0;
+    fillInTheColors()
+    } else{
         currentBox = 0;
         boxes.forEach(function(box){
             box.style.backgroundColor = 'black';
-        })
+            })
+        }
     }
-}
+
+// }
 
 function handleStart(e){
     console.log('Game Starts NOW!');
@@ -125,7 +170,10 @@ function handleStart(e){
 }
 
 function boomGameOver(){
+    gameOver = true;
+    timer();
     console.log('game over..')
+    return
 }
 
 function randomColor(e){
