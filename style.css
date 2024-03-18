@@ -209,3 +209,20 @@ main{
     height: 570px;
     /* box-shadow: 2px 2px 2px 2px black; */
 }
+
+#det-con-btns {
+    /* border: solid black 1px; */
+    margin: 0 auto; 
+    text-align: center; 
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+#start {
+    display: block;
+    height: 50px;
+    width: 150px;
+    border-radius: 50px;
+    margin: 0 auto;
+}
