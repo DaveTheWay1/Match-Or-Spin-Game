@@ -4,7 +4,9 @@
 h1{
     text-align: center;
 }
-
+/* body{
+    background-color: aqua;
+} */
 main {
     width: 600px;
     max-width: 600px; 
@@ -117,6 +119,7 @@ img[alt="onion"]{
 button{
     border: solid black 1px;
     box-shadow: 2px 2px 2px 2px black;
+    cursor:pointer
 }
 
 /* yellow */

@@ -28,6 +28,7 @@ const detonoate = document.getElementById('detonate').addEventListener('click', 
 colorButtons.forEach(function(button){
     button.addEventListener('click', handleClick);
 })
+const click = document.getElementById('clickSound');
 const min = document.getElementById('minutes');
 const sec = document.getElementById('seconds');
 
@@ -95,6 +96,7 @@ function timer(){
 function handleClick(e){
     let color;
     const tag = e.target.tagName;
+    // click.play()
     if(tag === 'IMG'){
         console.log(e.target.tagName)
         console.log(e.target.parentElement.id);
@@ -112,7 +114,10 @@ function handleClick(e){
 
 
 function handleDetonate(e){
-    console.log('BOOM! Game over..')
+    gameOver = true;
+    timer();
+    console.log('game over..')
+    return
 }
 
 function handleConfim(e){
@@ -148,7 +153,12 @@ function boxesToBeFilled(cb){
     randomizedPattern.push(color);
     console.log(randomizedPattern);
     console.log(colorList[selected].color);
-    setTimeout(cb, colorList[selected].time);
+    if (gameOver===true){
+        // boxes.forEach(function(box){
+        box.style.backgroundColor = 'black';
+    }else{
+        setTimeout(cb, colorList[selected].time);
+    }
 }
 
 function fillInTheColors(){
