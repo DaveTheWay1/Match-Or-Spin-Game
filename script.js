@@ -93,9 +93,21 @@ function timer(){
 }
 
 function handleClick(e){
-    const color = e.target.id
-    selectedColors.push(color);
-    console.log(selectedColors);
+    let color;
+    const tag = e.target.tagName;
+    if(tag === 'IMG'){
+        console.log(e.target.tagName)
+        console.log(e.target.parentElement.id);
+        color = e.target.parentElement.id;
+        selectedColors.push(color);
+        console.log(selectedColors);
+    }else{
+        console.log(e.target.tagName)
+        color = e.target.id;
+        console.log(color)
+        selectedColors.push(color);
+        console.log(selectedColors);
+    }
 }
 
 
