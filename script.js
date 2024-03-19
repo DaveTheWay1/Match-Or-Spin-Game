@@ -21,10 +21,12 @@ const firstBox = document.getElementById('color1');
 const secondBox = document.getElementById('color2');
 const thirdBox = document.getElementById('color3');
 const boxes = document.querySelectorAll('.colorFlash');
-const start = document.getElementById('start').addEventListener('click', handleStart)
+const start = document.getElementById('start');
+start.addEventListener('click', handleStart)
 const colorButtons = document.querySelectorAll('main > div');
 const confirmBtn = document.getElementById('confirm').addEventListener('click', handleConfim);
 const detonoate = document.getElementById('detonate').addEventListener('click', handleDetonate);
+const h2 = document.querySelector('h2');
 colorButtons.forEach(function(button){
     button.addEventListener('click', handleClick);
 })
@@ -62,9 +64,7 @@ function levelUp(){
     // console.log(currentLevel.level);
     randomizedPattern = []
     selectedColors = []
-    // if (gameOver === false){
     fillInTheColors();
-    // }
 }
 
 let gameOver = false;
@@ -111,11 +111,29 @@ function handleClick(e){
     }
 }
 
+function render(){
+
+}
+
+function renderMessage(){
+    h2.innerHTML = '<h2>Welcome! Match The Colors Displayed!<br>Also... Be Careful..<img src="img/eyes/giphy-1.webp" alt="eyes"></h2>'
+}
+
+function renderControls(){
+    if (gameOver){
+        start.innerText = 'Play Again';
+    }
+}
 
 function handleDetonate(e){
     gameOver = true;
     timer();
+    randomizedPattern = [];
+    selectedColors = [];
+    currentBox = 0;
     console.log('game over..')
+    h2.innerText = 'game over'
+    renderControls();
     return
 }
 
@@ -133,8 +151,6 @@ function handleConfim(e){
             if(color !== selectedColors[i]){
                 // console.log('not a match')
                 allMatchArr.push(false);
-                // handleDetonate();
-                // break;
             }
             else{
                 allMatchArr.push(true)
@@ -145,6 +161,7 @@ function handleConfim(e){
         }
         if(allMatchArr.includes(false)){
             // console.log(`not a match.. game over`)
+            h2.innerText = `Not A Match! Game Over!`
             handleDetonate();
         } else{
             currentLevel.levelComplete();
@@ -152,6 +169,7 @@ function handleConfim(e){
             console.log(`Level ${currentLevel.level} Complete!`);
             console.log(`current level: ${currentLevel.level}`)
             levelUp();
+            h2.innerText = `Level: ${currentLevel.level} `
             console.log(`next level: ${currentLevel.level}`)
 
         }
@@ -171,12 +189,14 @@ function boxesToBeFilled(cb){
     console.log(colorList[selected].color);
     if (gameOver===true){
         box.style.backgroundColor = 'black';
+        // return
     }else{
         setTimeout(cb, colorList[selected].time);
     }
 }
 
 function fillInTheColors(){
+    console.log(`current level: ${currentLevel.level}`)
     if(currentBox < 3){
         boxesToBeFilled(fillInTheColors);
         currentBox = ++currentBox;
@@ -195,8 +215,21 @@ function fillInTheColors(){
 
 function handleStart(e){
     console.log('Game Starts NOW!');
-    timer();
-    fillInTheColors();
+    // if(gameOver){
+    //     // console.log(currentLevel)
+    //     gameOver = false;
+    //     currentLevel = levels[0];
+    //     currentBox = 0;
+    //     minutes = 1;
+    //     seconds = 60;
+    //     console.log(currentLevel);
+    //     timer();
+    //     renderMessage();
+    //     fillInTheColors();
+    // } else{
+        timer();
+        fillInTheColors();
+    // }
 }
 
 function randomColor(e){
