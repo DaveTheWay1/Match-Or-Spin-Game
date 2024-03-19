@@ -59,12 +59,12 @@ function levelUp(){
     const upOne = levels.slice(1);
     levels = upOne;
     currentLevel = upOne[0]
-    console.log(currentLevel.level);
+    // console.log(currentLevel.level);
     randomizedPattern = []
     selectedColors = []
-    if (gameOver === false){
-        fillInTheColors();
-    }
+    // if (gameOver === false){
+    fillInTheColors();
+    // }
 }
 
 let gameOver = false;
@@ -120,23 +120,40 @@ function handleDetonate(e){
 }
 
 function handleConfim(e){
+    const allMatchArr = [];
     console.log('Confirming Match..')
     if(randomizedPattern.length !== selectedColors.length){
         handleDetonate();
     }else{
+        console.log(`randomized pattern: ${randomizedPattern}, seleced colors: ${selectedColors}`)
         for(i = 0; i < randomizedPattern.length; i++){
+            console.log(`color: ${randomizedPattern[i].slice(1)} selected color: ${selectedColors[i]}`);
             let color = randomizedPattern[i].slice(1);
+            console.log(`color:${color}`)
             if(color !== selectedColors[i]){
-                handleDetonate();
-                break;
-            }else{
+                // console.log('not a match')
+                allMatchArr.push(false);
+                // handleDetonate();
+                // break;
+            }
+            else{
+                allMatchArr.push(true)
+                console.log(allMatchArr);
                 console.log(`color: ${color} selected color: ${selectedColors[i]}`);
                 console.log(`Match!`)
             }
+        }
+        if(allMatchArr.includes(false)){
+            // console.log(`not a match.. game over`)
+            handleDetonate();
+        } else{
             currentLevel.levelComplete();
             console.log(currentLevel.isComplete)
             console.log(`Level ${currentLevel.level} Complete!`);
+            console.log(`current level: ${currentLevel.level}`)
             levelUp();
+            console.log(`next level: ${currentLevel.level}`)
+
         }
     }
 }
