@@ -96,7 +96,6 @@ function timer(){
 function handleClick(e){
     let color;
     const tag = e.target.tagName;
-    // click.play()
     if(tag === 'IMG'){
         console.log(e.target.tagName)
         console.log(e.target.parentElement.id);
@@ -123,12 +122,12 @@ function handleDetonate(e){
 function handleConfim(e){
     console.log('Confirming Match..')
     if(randomizedPattern.length !== selectedColors.length){
-        boomGameOver();
+        handleDetonate();
     }else{
         for(i = 0; i < randomizedPattern.length; i++){
             let color = randomizedPattern[i].slice(1);
             if(color !== selectedColors[i]){
-                boomGameOver();
+                handleDetonate();
                 break;
             }else{
                 console.log(`color: ${color} selected color: ${selectedColors[i]}`);
@@ -154,7 +153,6 @@ function boxesToBeFilled(cb){
     console.log(randomizedPattern);
     console.log(colorList[selected].color);
     if (gameOver===true){
-        // boxes.forEach(function(box){
         box.style.backgroundColor = 'black';
     }else{
         setTimeout(cb, colorList[selected].time);
@@ -182,13 +180,6 @@ function handleStart(e){
     console.log('Game Starts NOW!');
     timer();
     fillInTheColors();
-}
-
-function boomGameOver(){
-    gameOver = true;
-    timer();
-    console.log('game over..')
-    return
 }
 
 function randomColor(e){
