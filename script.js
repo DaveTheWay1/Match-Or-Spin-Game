@@ -90,6 +90,11 @@ function timer(){
         return;
     }
     setTime();
+    console.log(`minutes: ${minutes}, seconds: ${seconds}`)
+    if(minutes === 0 && seconds === 0 && levelFive.isComplete === false){
+        console.log('you lose')
+        handleDetonate();
+    }
     setTimeout(timer, 1000);
 }
 
