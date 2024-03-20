@@ -50,21 +50,28 @@ class level{
 }
 const levelOne = new level(1, 3);
 const levelTwo = new level(2,3);
-const levelThree = new level(3,6);
-const levelFour = new level(4,6);
-const levelFive = new level(5,9);
+const levelThree = new level(3,3);
+const levelFour = new level(4,3);
+const levelFive = new level(5,3);
 
 let levels = [levelOne, levelTwo, levelThree, levelFour, levelFive];
 let currentLevel = levels[0];
 
 function levelUp(){
-    const upOne = levels.slice(1);
-    levels = upOne;
-    currentLevel = upOne[0]
-    // console.log(currentLevel.level);
-    randomizedPattern = []
-    selectedColors = []
-    fillInTheColors();
+    if (levelFive.isComplete === true){
+        console.log('you win!')
+        h2.innerText = 'You Win!'
+        gameOver = true;
+        timer();
+    }else{
+        const upOne = levels.slice(1);
+        levels = upOne;
+        currentLevel = upOne[0]
+        // console.log(currentLevel.level);
+        randomizedPattern = []
+        selectedColors = []
+        fillInTheColors();
+    }
 }
 
 let gameOver = false;
