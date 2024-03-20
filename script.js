@@ -239,3 +239,9 @@ function randomColor(e){
     return x;
 }
 
+function startRotation() {
+    const images = document.querySelectorAll('button > img');
+    images.forEach(image => {
+        image.classList.toggle('rotate');
+    });
+}
