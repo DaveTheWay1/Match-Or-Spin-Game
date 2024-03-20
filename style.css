@@ -253,3 +253,7 @@ main{
 .rotate {
     animation: rotate 1s linear infinite;
 }
+
+.stop {
+    animation-play-state: paused;
+}

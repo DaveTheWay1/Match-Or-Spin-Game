@@ -227,7 +227,7 @@ function handleStart(e){
         timer();
         renderMessage();
         fillInTheColors();
-        toggleSpinner();
+        stopRotation();
     } else{
         timer();
         fillInTheColors();
@@ -240,6 +240,13 @@ function randomColor(e){
 }
 
 function startRotation() {
+    const images = document.querySelectorAll('button > img');
+    images.forEach(image => {
+        image.classList.toggle('rotate');
+    });
+}
+
+function stopRotation() {
     const images = document.querySelectorAll('button > img');
     images.forEach(image => {
         image.classList.toggle('rotate');
