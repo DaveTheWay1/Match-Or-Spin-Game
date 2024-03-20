@@ -134,6 +134,7 @@ function handleDetonate(e){
     console.log('game over..')
     h2.innerText = 'game over'
     renderControls();
+    startRotation()
     return
 }
 
@@ -215,24 +216,26 @@ function fillInTheColors(){
 
 function handleStart(e){
     console.log('Game Starts NOW!');
-    // if(gameOver){
-    //     // console.log(currentLevel)
-    //     gameOver = false;
-    //     currentLevel = levels[0];
-    //     currentBox = 0;
-    //     minutes = 1;
-    //     seconds = 60;
-    //     console.log(currentLevel);
-    //     timer();
-    //     renderMessage();
-    //     fillInTheColors();
-    // } else{
+    if(gameOver){
+        gameOver = false;
+        levels = [levelOne, levelTwo, levelThree, levelFour, levelFive];
+        currentLevel = levels[0];
+        currentBox = 0;
+        minutes = 1;
+        seconds = 60;
+        console.log(`current level ${currentLevel}`);
+        timer();
+        renderMessage();
+        fillInTheColors();
+        toggleSpinner();
+    } else{
         timer();
         fillInTheColors();
-    // }
+    }
 }
 
 function randomColor(e){
     const x = Math.floor(Math.random()*16);
     return x;
 }
+
