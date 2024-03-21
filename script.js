@@ -56,11 +56,13 @@ const levelFive = new level(5,3);
 
 let levels = [levelOne, levelTwo, levelThree, levelFour, levelFive];
 let currentLevel = levels[0];
+let gameWon;
 let gameOver;
 let minutes;
 let seconds;
 
 function init(){
+    gameWon = false;
     gameOver = false;
     levels = [levelOne, levelTwo, levelThree, levelFour, levelFive];
     currentLevel = levels[0];
@@ -73,6 +75,7 @@ function levelUp(){
     if (levelFive.isComplete === true){
         console.log('you win!')
         h2.innerText = 'You Win!'
+        gameWon = true;
         gameOver = true;
         timer();
     }else{
@@ -190,9 +193,12 @@ function handleConfim(e){
             console.log(`Level ${currentLevel.level} Complete!`);
             console.log(`current level: ${currentLevel.level}`)
             levelUp();
-            h2.innerText = `Level: ${currentLevel.level} `
-            console.log(`next level: ${currentLevel.level}`)
-
+            if (levelFive.isComplete === true){
+                h2.innerText = 'You Win!'
+            }else {
+                h2.innerText = `Level: ${currentLevel.level} `
+                console.log(`next level: ${currentLevel.level}`)
+            }
         }
     }
 }
@@ -236,7 +242,13 @@ function fillInTheColors(){
 
 function handleStart(e){
     console.log('Game Starts NOW!');
-    if(gameOver){
+    if(gameWon){
+        init();
+        timer();
+        renderMessage();
+        fillInTheColors();
+    }
+    else if(gameOver){
         init();
         timer();
         renderMessage();
