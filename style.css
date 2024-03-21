@@ -9,10 +9,9 @@ h2{
     text-align: center;
     margin-bottom: 50px;
 }
-/* body{
-    background-color: aqua;
-} */
+
 main {
+    margin-bottom: 150px;
     width: 600px;
     max-width: 600px; 
     margin: 0 auto;
@@ -23,9 +22,14 @@ main {
     display: flex;
     justify-content: space-evenly;
     margin: 50px;
+    /* border: solid black 1px; */
+    height: 70px;
 }
 .colorFlash{
-    border: solid black 1px;
+    margin-bottom: 70px;
+    width: 600px;
+    max-width: 600px;
+    /* border: solid black 1px; */
     background-color: black;
     height: 100px;
     width: 100px;
@@ -40,13 +44,13 @@ button{
     background-color: yellow;
     border-radius: 100px;
     width: 200px;
-    height: 200px;
+    height: 100px;
 }
 #confirm{
     background-color: red;
     border-radius: 100px;
     width: 200px;
-    height: 200px;
+    height: 100px;
 }
 
 #redLight{
@@ -58,6 +62,8 @@ button{
 main{
     background-color: grey;
     padding: 10px;
+    padding-top: 20px;
+    height: 570px;
 }
 
 img[alt="blueDino"]{
@@ -152,25 +158,21 @@ img[alt = "hungryDino"]{
     bottom: 6px;
 }
 
-/* blue */
 #\32 52DE2 {
     position: relative;
     bottom: 3px;
 }
 
-/* carrots */
 #\36 66441 {
     position:relative;
     bottom: 93px;
 }
 
-/* onion */
 #B81A5C{
     position: relative;
     bottom:94px;
 }
 
-/* sandwich */
 #C9AAA2{
     position: relative;
     bottom: 90px;
@@ -181,13 +183,11 @@ img[alt = "hungryDino"]{
     bottom: 83px;
 }
 
-/* cow */
 #\31 7424F{
     position: relative;
     bottom: 75px;
 }
 
-/* lama */
 #\36 C0D53{
     position: relative;
     bottom: 91px;
@@ -218,14 +218,7 @@ img[alt = "hungryDino"]{
     margin-right: 15px;
 }
 
-main{
-    padding-top: 20px;
-    height: 570px;
-    /* box-shadow: 2px 2px 2px 2px black; */
-}
-
 #det-con-btns {
-    /* border: solid black 1px; */
     margin: 0 auto; 
     text-align: center; 
     width: 500px;
