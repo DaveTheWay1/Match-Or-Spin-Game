@@ -70,6 +70,8 @@ function init(){
     minutes = 1;
     seconds = 60;
 
+    render()
+
 }
 function levelUp(){
     if (levelFive.isComplete === true){
@@ -77,7 +79,7 @@ function levelUp(){
         h2.innerText = 'You Win!'
         gameWon = true;
         gameOver = true;
-        start.innerText = 'Play Again'
+        renderControls();
         timer();
     }else{
         const upOne = levels.slice(1);
@@ -134,6 +136,8 @@ function handleClick(e){
 }
 
 function render(){
+    renderMessage();
+    renderControls();
 
 }
 
@@ -141,9 +145,12 @@ function renderMessage(){
     h2.innerHTML = '<h2>Welcome! Match The Colors Displayed!<br>Also... Be Careful..<img src="img/eyes/giphy-1.webp" alt="eyes"></h2>'
 }
 
-function renderControls(){
+function renderControls() {
     if (gameOver || gameWon){
+        start.style.visibility = "visible";
         start.innerText = 'Play Again';
+    } else{
+        start.style.visibility = "hidden";
     }
 }
 
@@ -183,7 +190,6 @@ function handleConfim(e){
             }
         }
         if(allMatchArr.includes(false)){
-            // console.log(`not a match.. game over`)
             h2.innerText = `Not A Match! Game Over!`
             handleDetonate();
         } else{
@@ -215,7 +221,6 @@ function boxesToBeFilled(cb){
     console.log(colorList[selected].color);
     if (gameOver===true){
         box.style.backgroundColor = 'black';
-        // return
     }else{
         setTimeout(cb, colorList[selected].time);
     }
@@ -245,7 +250,6 @@ function handleStart(e){
         init();
         timer();
         renderMessage();
-        // renderControls();
         fillInTheColors();
     }
     else if(gameOver){
