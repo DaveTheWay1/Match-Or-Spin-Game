@@ -77,6 +77,7 @@ function levelUp(){
         h2.innerText = 'You Win!'
         gameWon = true;
         gameOver = true;
+        start.innerText = 'Play Again'
         timer();
     }else{
         const upOne = levels.slice(1);
@@ -87,8 +88,6 @@ function levelUp(){
         fillInTheColors();
     }
 }
-
-
 
 function setTime(){
     min.innerText = minutes;
@@ -143,7 +142,7 @@ function renderMessage(){
 }
 
 function renderControls(){
-    if (gameOver){
+    if (gameOver || gameWon){
         start.innerText = 'Play Again';
     }
 }
@@ -246,6 +245,7 @@ function handleStart(e){
         init();
         timer();
         renderMessage();
+        // renderControls();
         fillInTheColors();
     }
     else if(gameOver){
