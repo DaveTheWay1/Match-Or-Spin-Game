@@ -36,7 +36,7 @@ const sec = document.getElementById('seconds');
 
 let randomizedPattern = [];
 let selectedColors = [];
-let currentBox = 0;
+let currentBox;
 
 class level{
     constructor(level, length){
@@ -56,7 +56,19 @@ const levelFive = new level(5,3);
 
 let levels = [levelOne, levelTwo, levelThree, levelFour, levelFive];
 let currentLevel = levels[0];
+let gameOver;
+let minutes;
+let seconds;
 
+function init(){
+    gameOver = false;
+    levels = [levelOne, levelTwo, levelThree, levelFour, levelFive];
+    currentLevel = levels[0];
+    currentBox = 0;
+    minutes = 1;
+    seconds = 60;
+
+}
 function levelUp(){
     if (levelFive.isComplete === true){
         console.log('you win!')
@@ -67,17 +79,13 @@ function levelUp(){
         const upOne = levels.slice(1);
         levels = upOne;
         currentLevel = upOne[0]
-        // console.log(currentLevel.level);
         randomizedPattern = []
         selectedColors = []
         fillInTheColors();
     }
 }
 
-let gameOver = false;
 
-let minutes = 1;
-let seconds = 60;
 
 function setTime(){
     min.innerText = minutes;
@@ -229,18 +237,13 @@ function fillInTheColors(){
 function handleStart(e){
     console.log('Game Starts NOW!');
     if(gameOver){
-        gameOver = false;
-        levels = [levelOne, levelTwo, levelThree, levelFour, levelFive];
-        currentLevel = levels[0];
-        currentBox = 0;
-        minutes = 1;
-        seconds = 60;
-        console.log(`current level ${currentLevel}`);
+        init();
         timer();
         renderMessage();
         fillInTheColors();
         stopRotation();
     } else{
+        init();
         timer();
         fillInTheColors();
     }
