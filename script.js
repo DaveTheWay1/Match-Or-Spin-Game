@@ -109,7 +109,7 @@ function timer(){
         return;
     }
     setTime();
-    console.log(`minutes: ${minutes}, seconds: ${seconds}`)
+    // console.log(`minutes: ${minutes}, seconds: ${seconds}`)
     if(minutes === 0 && seconds === 0 && levelFive.isComplete === false){
         console.log('you lose')
         handleDetonate();
@@ -120,7 +120,9 @@ function timer(){
 function handleClick(e){
     let color;
     const tag = e.target.tagName;
-    if(tag === 'IMG'){
+    if (tag === 'DIV'){
+        return;
+    } else if(tag === 'IMG'){
         console.log(e.target.tagName)
         console.log(e.target.parentElement.id);
         color = e.target.parentElement.id;
