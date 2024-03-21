@@ -4,7 +4,12 @@
 h1{
     text-align: center;
 }
-
+body{
+    text-align:center;
+    background:url("img/background/giphy-4.webp");
+    background-size: cover;
+    background-position:center;
+}
 h2{
     text-align: center;
     margin-bottom: 50px;
