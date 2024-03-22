@@ -19,15 +19,18 @@ The Game starts with the timer on top, the game displayer, and the star button p
 Players will match the colors presented and as they level up their level will display
 ![Opening](img/Screenshot%202024-03-22%20at%209.26.18%E2%80%AFAM.PNG)
 
-But if the player messes up while trying to level up, the loss will display and the characters go for a spin. The Play again button is then also displayed
+But if the player messes up while trying to level up, the loss will display and the characters go for a spin. The Play again button is then also displayed and the timer comes to a pause as well
 ![Opening](img/Screenshot%202024-03-22%20at%209.24.48%E2%80%AFAM.PNG)
 ![Opening](img/Screenshot%202024-03-22%20at%209.28.15%E2%80%AFAM.png)
+![Opening](img/Screenshot%202024-03-22%20at%209.28.08%E2%80%AFAM.png)
 
 If the player succesfully wins the game passing all 5 levels then they will
 recieve a win notification.
 ![Opening](img/Screenshot%202024-03-22%20at%209.29.44%E2%80%AFAM.PNG)
 
 Next Steps
+First fix the styling so that it all fits in one page and therefore the timer is always displayed
+
 I would like to add more sounds where the clicking of each color/character makes a sound, a winning sound, and a losing sound
 
 Additionally id like to add the characters be shown above as well rather than just the colors
