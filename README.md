@@ -7,8 +7,12 @@ Technologies Used
 - HTML
 - CSS
 
-Getting Started
-[Click to Play Connect Four!](your deployment url here)
+Getting Started:
+
+Click the link to let the fun begin!!
+https://davetheway1.github.io/Bomb-Diffusion-Game/ 
+
+![Opening](img/Screenshot%202024-03-22%20at%209.23.34%E2%80%AFAM.PNG)
 
 Next Steps
 For future enhancements, I would like to add music in the background to make the game more
