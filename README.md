@@ -1,12 +1,14 @@
 TITLE
 
+It is a fun friendly game that tests your memory and your skill to apply it when under the pressure. In... you have a timer set to 2 minutes to which within those 2 minutes you will have to go through all 5 levels without missing or changing the order of the patterns presented at the top of your screen. Starting off easy with 3 color patterns to memorize, then 6, and then for the final and biggest challenege... 9!! Have fun, test yourself, and see just how far your can get when you are put to the test!
+
 Technologies Used
 - JavaScript
 - HTML
 - CSS
 
 Getting Started
-[Click to View Project Planning](your Trello url here) [Click to Play Connect Four!](your deployment url here)
+[Click to Play Connect Four!](your deployment url here)
 
 Next Steps
 For future enhancements, I would like to add music in the background to make the game more

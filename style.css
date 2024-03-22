@@ -34,8 +34,9 @@ main {
     margin-bottom: 70px;
     width: 600px;
     max-width: 600px;
-    /* border: solid black 1px; */
-    background-color: black;
+    border: solid black 1px;
+    box-shadow: 2px 2px 2px 2px black;
+    background-color: white;
     height: 100px;
     width: 100px;
 }
@@ -47,15 +48,26 @@ button{
 
 #detonate{
     background-color: yellow;
+    font-weight: bold;
     border-radius: 100px;
+    font-size: larger;
     width: 200px;
     height: 100px;
 }
+
+#detonate:hover{
+        background-color: #FFD700; /* Lighter shade of yellow in hexadecimal */
+}
 #confirm{
     background-color: red;
+    font-weight: bold;
     border-radius: 100px;
+    font-size: larger;
     width: 200px;
     height: 100px;
+}
+#confirm:hover{
+    background-color: #CC3333;
 }
 
 #redLight{
@@ -231,8 +243,12 @@ img[alt = "hungryDino"]{
     justify-content: space-between;
     margin-top: 15px;
 }
+
 #start {
+    background-color: #3498db;
+    font-weight: bold;
     display: block;
+    font-size: larger;
     height: 50px;
     width: 150px;
     border-radius: 50px;

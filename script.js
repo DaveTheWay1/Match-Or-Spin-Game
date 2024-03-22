@@ -1,3 +1,16 @@
+const audio = document.getElementById('myAudio');
+
+function playAudioLoop() {
+    audio.loop = true; // Set the loop property to true
+    audio.play(); // Start playing the audio
+}
+
+// Call the function to start playing the audio in a loop
+playAudioLoop();
+
+setTimeout(() => {
+    audio.play();
+}, 1000); // Play after a 1 second delay
 const colorList = [
     {color:'#9F2D2D', time:3000}, 
     {color:'#DBEA2C', time:3000}, 
@@ -29,7 +42,8 @@ const detonoate = document.getElementById('detonate').addEventListener('click', 
 const h2 = document.querySelector('h2');
 colorButtons.forEach(function(button){
     button.addEventListener('click', handleClick);
-})
+});
+
 const click = document.getElementById('clickSound');
 const min = document.getElementById('minutes');
 const sec = document.getElementById('seconds');
@@ -109,7 +123,6 @@ function timer(){
         return;
     }
     setTime();
-    // console.log(`minutes: ${minutes}, seconds: ${seconds}`)
     if(minutes === 0 && seconds === 0 && levelFive.isComplete === false){
         console.log('you lose')
         handleDetonate();
@@ -123,17 +136,11 @@ function handleClick(e){
     if (tag === 'DIV'){
         return;
     } else if(tag === 'IMG'){
-        console.log(e.target.tagName)
-        console.log(e.target.parentElement.id);
         color = e.target.parentElement.id;
         selectedColors.push(color);
-        console.log(selectedColors);
     }else{
-        console.log(e.target.tagName)
         color = e.target.id;
-        console.log(color)
         selectedColors.push(color);
-        console.log(selectedColors);
     }
 }
 
@@ -162,7 +169,6 @@ function handleDetonate(e){
     randomizedPattern = [];
     selectedColors = [];
     currentBox = 0;
-    console.log('game over..')
     h2.innerText = 'game over'
     renderControls();
     startRotation()
@@ -171,24 +177,16 @@ function handleDetonate(e){
 
 function handleConfim(e){
     const allMatchArr = [];
-    console.log('Confirming Match..')
     if(randomizedPattern.length !== selectedColors.length){
         handleDetonate();
     }else{
-        console.log(`randomized pattern: ${randomizedPattern}, seleced colors: ${selectedColors}`)
         for(i = 0; i < randomizedPattern.length; i++){
-            console.log(`color: ${randomizedPattern[i].slice(1)} selected color: ${selectedColors[i]}`);
             let color = randomizedPattern[i].slice(1);
-            console.log(`color:${color}`)
             if(color !== selectedColors[i]){
-                // console.log('not a match')
                 allMatchArr.push(false);
             }
             else{
                 allMatchArr.push(true)
-                console.log(allMatchArr);
-                console.log(`color: ${color} selected color: ${selectedColors[i]}`);
-                console.log(`Match!`)
             }
         }
         if(allMatchArr.includes(false)){
@@ -196,22 +194,18 @@ function handleConfim(e){
             handleDetonate();
         } else{
             currentLevel.levelComplete();
-            console.log(currentLevel.isComplete)
-            console.log(`Level ${currentLevel.level} Complete!`);
-            console.log(`current level: ${currentLevel.level}`)
             levelUp();
             if (levelFive.isComplete === true){
                 h2.innerText = 'You Win!'
             }else {
                 h2.innerText = `Level: ${currentLevel.level} `
-                console.log(`next level: ${currentLevel.level}`)
             }
         }
     }
 }
 function boxesToBeFilled(cb){
     boxes.forEach(function(box){
-        box.style.backgroundColor = 'black';
+        box.style.backgroundColor = 'white';
     })
     const box = boxes[currentBox];
     console.log(box);
@@ -222,7 +216,7 @@ function boxesToBeFilled(cb){
     console.log(randomizedPattern);
     console.log(colorList[selected].color);
     if (gameOver===true){
-        box.style.backgroundColor = 'black';
+        box.style.backgroundColor = 'white';
     }else{
         setTimeout(cb, colorList[selected].time);
     }
@@ -241,7 +235,7 @@ function fillInTheColors(){
     } else{
         currentBox = 0;
         boxes.forEach(function(box){
-            box.style.backgroundColor = 'black';
+            box.style.backgroundColor = 'white';
             })
         }
     }
