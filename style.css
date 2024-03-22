@@ -3,6 +3,9 @@
 }
 h1{
     text-align: center;
+    position: relative;
+    left: 20px;
+    top: 40px;
 }
 body{
     text-align:center;
@@ -13,8 +16,12 @@ body{
 h2{
     text-align: center;
     margin-bottom: 50px;
+    position: relative;
+    top:25px;
 }
-
+h3{
+    font-size: 25px;
+}
 main {
     margin-bottom: 150px;
     width: 600px;
@@ -27,7 +34,6 @@ main {
     display: flex;
     justify-content: space-evenly;
     margin: 50px;
-    /* border: solid black 1px; */
     height: 70px;
 }
 .colorFlash{
@@ -56,7 +62,7 @@ button{
 }
 
 #detonate:hover{
-        background-color: #FFD700; /* Lighter shade of yellow in hexadecimal */
+        background-color: #FFD700;
 }
 #confirm{
     background-color: red;
@@ -71,8 +77,8 @@ button{
 }
 
 #redLight{
-    position:absolute;
-    top:15px;
+    position:relative;
+    top:4px;
     width:40px;
 }
 
