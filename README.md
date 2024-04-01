@@ -10,7 +10,7 @@ JavaScript HTML CSS
 ## Getting Started:
 
 ## Click the link to let the fun begin!!
-https://davetheway1.github.io/Bomb-Diffusion-Game/ 
+https://davetheway1.github.io/Match-Or-Spin-Game/
 
 ## When the page is opened:
 A timer appears at the top of the screen displaying "00:00". Along with a message welcoming the player to the game followed by the starting level. The game will not officially start when the player has hit start.
