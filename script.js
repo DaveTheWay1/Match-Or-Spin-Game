@@ -208,7 +208,7 @@
             renderControls();
             startRotation();
             return
-        } else{
+        } else if(gameOver === true){
             detonoate.disable = true;
         }
     }
